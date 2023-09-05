@@ -23,41 +23,37 @@ function ContactForm() {
 	};
 
 	return (
-		<div>
-			<h2>Contact Us</h2>
+		<div class="fullpage-section" id="contact">
+			<h1>Contact me</h1>
 			<form onSubmit={handleSubmit}>
-				<div>
-					<label htmlFor="name">Name:</label>
-					<input
-						type="text"
-						id="name"
-						name="name"
-						value={formData.name}
-						onChange={handleChange}
-						required
-					/>
-				</div>
-				<div>
-					<label htmlFor="email">Email:</label>
-					<input
-						type="email"
-						id="email"
-						name="email"
-						value={formData.email}
-						onChange={handleChange}
-						required
-					/>
-				</div>
-				<div>
-					<label htmlFor="message">Message:</label>
-					<textarea
-						id="message"
-						name="message"
-						value={formData.message}
-						onChange={handleChange}
-						required
-					/>
-				</div>
+				<input
+					type="text"
+					id="name"
+					name="name"
+					placeholder="Name"
+					value={formData.name}
+					onChange={handleChange}
+					required
+				/>
+
+				<input
+					type="email"
+					id="email"
+					name="email"
+					placeholder="Email"
+					value={formData.email}
+					onChange={handleChange}
+					required
+				/>
+
+				<textarea
+					id="message"
+					name="message"
+					placeholder="Message"
+					value={formData.message}
+					onChange={handleChange}
+					required
+				/>
 				<button type="submit">Submit</button>
 			</form>
 		</div>

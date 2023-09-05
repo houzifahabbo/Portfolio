@@ -1,5 +1,4 @@
 import React from "react";
-import Card from "react-bootstrap/Card";
 import { Link } from "react-router-dom";
 import "../App.css";
 
@@ -25,8 +24,8 @@ function Projects() {
 		},
 	];
 	return (
-		<div id="projects">
-			<h2>Projects</h2>
+		<div className="fullpage-section">
+			<h1>Projects</h1>
 			<div className="projects">
 				{projects.map((project) => (
 					<Link
@@ -34,17 +33,16 @@ function Projects() {
 						className="project"
 						target="_blank"
 						key={project.title}
+						style={{
+							background: `linear-gradient(to bottom, rgba(0,0,0,0) 50%, rgba(0,40,80,1) 100%), url(${project.img}) no-repeat center center/cover`,
+						}}
 					>
-						<Card>
-							<Card.Img variant="top" src={project.img} />
-							<Card.Body>
-								<Card.Title>{project.title}</Card.Title>
-								<Card.Text>{project.text}</Card.Text>
-							</Card.Body>
-						</Card>
+						<h1>{project.title}</h1>
+						<p>{project.text}</p>
 					</Link>
 				))}
 			</div>
+			<div className="overlay" />
 		</div>
 	);
 }
