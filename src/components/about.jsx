@@ -8,7 +8,6 @@ function About() {
 				<h2>Hi, my name is</h2>
 				<h1>Houzifa Habbo</h1>
 				<h2>Back-End Developer</h2>
-
 				<p>
 					As a computer engineering student with a passion for computers since
 					childhood, I have gained valuable experience through my involvement in

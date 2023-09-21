@@ -24,7 +24,7 @@ function Projects() {
 		},
 	];
 	return (
-		<div className="fullpage-section">
+		<div className="fullpage-section" id="projects">
 			<h1>Projects</h1>
 			<div className="projects">
 				{projects.map((project) => (
@@ -42,7 +42,6 @@ function Projects() {
 					</Link>
 				))}
 			</div>
-			<div className="overlay" />
 		</div>
 	);
 }

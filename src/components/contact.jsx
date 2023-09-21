@@ -1,61 +1,56 @@
-import React, { useState } from "react";
+import React from "react";
+import { useForm, ValidationError } from "@formspree/react";
+import "../App.css";
 
 function ContactForm() {
-	const [formData, setFormData] = useState({
-		name: "",
-		email: "",
-		message: "",
-	});
-
-	const handleChange = (e) => {
-		const { name, value } = e.target;
-		setFormData({
-			...formData,
-			[name]: value,
-		});
-	};
-
-	const handleSubmit = (e) => {
-		e.preventDefault();
-		// Here, you can perform actions like sending an email, displaying a confirmation message, or logging the form data.
-		console.log("Form Data:", formData);
-		// You can add further actions here.
-	};
+	const [state, handleSubmit] = useForm("xpzgylaq");
 
 	return (
-		<div class="fullpage-section" id="contact">
-			<h1>Contact me</h1>
-			<form onSubmit={handleSubmit}>
-				<input
-					type="text"
-					id="name"
-					name="name"
-					placeholder="Name"
-					value={formData.name}
-					onChange={handleChange}
-					required
-				/>
-
-				<input
-					type="email"
-					id="email"
-					name="email"
-					placeholder="Email"
-					value={formData.email}
-					onChange={handleChange}
-					required
-				/>
-
-				<textarea
-					id="message"
-					name="message"
-					placeholder="Message"
-					value={formData.message}
-					onChange={handleChange}
-					required
-				/>
-				<button type="submit">Submit</button>
-			</form>
+		<div className="fullpage-section" id="contact">
+			<div className="contact">
+				<h1>Contact me</h1>
+				<form onSubmit={handleSubmit}>
+					<input
+						id="name"
+						type="text"
+						name="Full name"
+						placeholder="Full Name"
+						required
+					/>
+					<input
+						id="email"
+						type="email"
+						name="Email"
+						placeholder="Email"
+						required
+					/>
+					<ValidationError prefix="Email" field="email" errors={state.errors} />
+					<textarea
+						id="message"
+						name="Message"
+						placeholder="Message"
+						required
+					/>
+					<ValidationError
+						prefix="Message"
+						field="message"
+						errors={state.errors}
+					/>
+					{state.succeeded ? (
+						<div className="alert" id="success">
+							Thanks for reaching out! I'll get back to you soon.
+						</div>
+					) : null}
+					{state.errors ? (
+						<div className="alert" id="danger">
+							There was an error submitting the form. Please try again.
+						</div>
+					) : null}
+					<button type="submit" disabled={state.submitting}>
+						Submit
+					</button>
+				</form>
+			</div>
 		</div>
 	);
 }

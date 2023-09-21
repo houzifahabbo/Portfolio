@@ -130,6 +130,13 @@
   overflow: hidden;
 }
 
+img{
+  height: 250px;
+  width: 250px;
+  object-fit: cover;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+}
+
 h1{
   font-size: 4rem;
   font-weight: bold;
@@ -197,9 +204,8 @@ input:focus, textarea:focus{
 }
 
 textarea{
-  resize:vertical;
-  min-height: 100px;
-  max-height: 300px;
+  resize: none;
+  height: 150px;
 }
 
 .socials{
@@ -315,4 +321,24 @@ textarea{
 
 .active{
   color: #BFD7ED;
+}
+
+.alert{
+  width: 50%;
+  padding: 15px;
+  border-radius: 15px;
+  border: solid;
+  margin: 15px 0;
+
+}
+#success{
+  background-color: #0c4129;
+  color: #90ff90;
+  border-color: #187f4f;
+}
+
+#danger{
+  background-color: #2c0b0e;
+  color: #ea868f;
+  border-color: #842029;
 }

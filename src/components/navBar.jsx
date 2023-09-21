@@ -51,7 +51,7 @@ const NavBar = () => {
 					to={action.id}
 					spy={true}
 					smooth={true}
-					offset={-100}
+					// offset={-100}
 					duration={500}
 				>
 					{action.icon}
